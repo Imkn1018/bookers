@@ -1,12 +1,11 @@
 class BooksController < ApplicationController
 
-  protect_from_forgery :except => [:destroy]
-  def index
-    @books = Book.all
+  def show
+    @book = Book.find(params[:id])
   end
 
-  def show
-    @book = Book.find_by(id: params[:id])
+  def index
+    @books = Book.all
   end
 
   def new
@@ -14,14 +13,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    if book.save
+    @book = Book.new(book_params)
+    if @book.save
      flash[:notice] = "Book was successfully created."
-     redirect_to book_path(book)
+     redirect_to book_path(@book)
     end
-    # , notice: "Book was successfully created."
   end
-
+  
   def edit
     @book = Book.find(params[:id])
   end
@@ -31,8 +29,7 @@ class BooksController < ApplicationController
     if book.update(book_params)
       flash[:notice] = "Book was successfully updated."
       redirect_to book_path(book)
-     # , notice: "Book was successfully created."
-   end
+    end
   end
 
   def destroy
@@ -44,8 +41,9 @@ class BooksController < ApplicationController
   end
 
   private
-
+  
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title,:body)
   end
+  
 end
