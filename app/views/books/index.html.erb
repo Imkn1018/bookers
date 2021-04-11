@@ -1,9 +1,10 @@
+<!--フラッシュ-->
 <% if flash[:notice] %>
     <div class="flash">
         <p><%= flash[:notice] %></p>
     </div>
 <% end  %>
-
+<!--投稿一覧-->
 <h1>Books</h1>
 <table>
   <thead>
@@ -26,15 +27,16 @@
   </tbody>
 </table>
 
+<!--新規投稿-->
 <h1>New Book</h1>
 <% if @book.errors.any? %>
   <div class="error_modal">
     <h2><%= @book.errors.count %> error prohibited this book from being saved:</h2>
-        <ul>
-          <% @book.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
 <% end  %>
 <%= form_with model:@book, local:true do |f| %>
