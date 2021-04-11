@@ -14,15 +14,6 @@
  *= require_self
  */
 
- body {
-    background-color: #fff;
-    color: #333;
-    font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-    margin: 33px;
-}
-
 table {
     display: table;
     border-collapse: separate;
@@ -76,18 +67,9 @@ td {
   color: #fff;
 }
 
-/*.error_form {*/
-  
-/*}*/
+.error_form {
+  margin-bottom: 10px;
+}
 
-/*.error_form p {*/
-/*  padding: 2px;*/
-/*  background-color: red;*/
-/*  display: table;*/
-/*}*/
-
-/*.error_field {*/
-/*  padding: 2px;*/
-/*  background-color: red;*/
-/*  display: table;*/
-/*}*/
+.error_field {
+}
